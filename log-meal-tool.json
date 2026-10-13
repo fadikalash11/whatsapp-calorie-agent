@@ -1,0 +1,833 @@
+{
+  "name": "Log Meal Tool",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "3119a593-6090-4a0e-ac18-6406e8bb4dab",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -880,
+        16
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "users",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "users",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "calories_today": "={{ $json.user_update.calories_today }}",
+            "protein_today": "={{ $json.user_update.protein_today }}",
+            "carbs_today": "={{ $json.user_update.carbs_today }}",
+            "fat_today": "={{ $json.user_update.fat_today }}",
+            "calories_left": "={{ $json.user_update.calories_left }}",
+            "protein_left": "={{ $json.user_update.protein_left }}",
+            "carbs_left": "={{ $json.user_update.carbs_left }}",
+            "fat_left": "={{ $json.user_update.fat_left }}",
+            "last_date": "={{ $json.user_update.last_date }}",
+            "user_id": "={{ $json.user_update.user_id }}"
+          },
+          "matchingColumns": [
+            "user_id"
+          ],
+          "schema": [
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "calories_target",
+              "displayName": "calories_target",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "protein_target",
+              "displayName": "protein_target",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "carbs_target",
+              "displayName": "carbs_target",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "fat_target",
+              "displayName": "fat_target",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "calories_today",
+              "displayName": "calories_today",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "protein_today",
+              "displayName": "protein_today",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "carbs_today",
+              "displayName": "carbs_today",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "fat_today",
+              "displayName": "fat_today",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "calories_left",
+              "displayName": "calories_left",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "last_date",
+              "displayName": "last_date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "weight",
+              "displayName": "weight",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "height",
+              "displayName": "height",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "age",
+              "displayName": "age",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "gender",
+              "displayName": "gender",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "goal",
+              "displayName": "goal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "start_date",
+              "displayName": "start_date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "protein_left",
+              "displayName": "protein_left",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "carbs_left",
+              "displayName": "carbs_left",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "fat_left",
+              "displayName": "fat_left",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "a487d7f9-7a63-4628-adfe-abbb76ff0ab4",
+      "name": "Update User Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1024,
+        -80
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "users",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 712688242,
+          "mode": "list",
+          "cachedResultName": "log meal",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "user_id": "={{ $('Execute Workflow Trigger').first().json.user_id }}",
+            "date": "={{ $now.setZone('Asia/Damascus').toFormat('yyyy-MM-dd') }}",
+            "time": "={{ $now.setZone('Asia/Damascus').toFormat('HH:mm:ss') }}",
+            "meal_name": "={{ $('Execute Workflow Trigger').first().json.meal_name }}",
+            "calories": "={{ $('Execute Workflow Trigger').first().json.calories }}",
+            "protein": "={{ $('Execute Workflow Trigger').first().json.protein }}",
+            "carbs": "={{ $('Execute Workflow Trigger').first().json.carbs }}",
+            "fat": "={{ $('Execute Workflow Trigger').first().json.fat }}",
+            "message_id": "={{ $('Execute Workflow Trigger').first().json.message_id }}",
+            "original_text": "={{ $('Execute Workflow Trigger').first().json.original_text }}",
+            "created_at": "={{ $now.setZone('Asia/Damascus').toISO() }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "date",
+              "displayName": "date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "time",
+              "displayName": "time",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "meal_name",
+              "displayName": "meal_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "calories",
+              "displayName": "calories",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "protein",
+              "displayName": "protein",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "carbs",
+              "displayName": "carbs",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "fat",
+              "displayName": "fat",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "message_id",
+              "displayName": "message_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "original_text",
+              "displayName": "original_text",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "1d04d6ce-086d-42d4-81d7-c367d4b99184",
+      "name": "Append Meal Log",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        448,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "users",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "users",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "user_id",
+              "lookupValue": "={{ $json.user_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c6a6c567-3e8a-424f-8fb8-91ac52023924",
+      "name": "Read User1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        576,
+        -48
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const request = $('Execute Workflow Trigger').first().json;\nconst user = $('Read User1').first().json;\nconst meals = $input.all().map(item => item.json);\n\nfunction toNumber(value) {\n  if (typeof value === 'number') {\n    return Number.isFinite(value) ? value : 0;\n  }\n\n  const normalized = String(value ?? 0)\n    .replace(/[٠-٩]/g, digit => String('٠١٢٣٤٥٦٧٨٩'.indexOf(digit)))\n    .replace(/[۰-۹]/g, digit => String('۰۱۲۳۴۵۶۷۸۹'.indexOf(digit)))\n    .replace(/٫/g, '.')\n    .replace(/٬/g, '')\n    .replace(/,/g, '')\n    .trim();\n\n  const result = Number(normalized);\n  return Number.isFinite(result) ? result : 0;\n}\n\nfunction round(value) {\n  return Math.round(value * 10) / 10;\n}\n\n// جمع كل وجبات اليوم الموجودة في log meal\nconst totals = meals.reduce((total, meal) => {\n  total.calories += toNumber(meal.calories);\n  total.protein += toNumber(meal.protein);\n  total.carbs += toNumber(meal.carbs);\n  total.fat += toNumber(meal.fat);\n  return total;\n}, {\n  calories: 0,\n  protein: 0,\n  carbs: 0,\n  fat: 0\n});\n\ntotals.calories = round(totals.calories);\ntotals.protein = round(totals.protein);\ntotals.carbs = round(totals.carbs);\ntotals.fat = round(totals.fat);\n\nconst caloriesTarget = toNumber(user.calories_target);\nconst proteinTarget = toNumber(user.protein_target);\nconst carbsTarget = toNumber(user.carbs_target);\nconst fatTarget = toNumber(user.fat_target);\n\nconst today = new Intl.DateTimeFormat('en-CA', {\n  timeZone: 'Asia/Damascus',\n  year: 'numeric',\n  month: '2-digit',\n  day: '2-digit'\n}).format(new Date());\n\nreturn [{\n  json: {\n    user_update: {\n      user_id: user.user_id,\n\n      calories_today: totals.calories,\n      protein_today: totals.protein,\n      carbs_today: totals.carbs,\n      fat_today: totals.fat,\n\n      calories_left: round(caloriesTarget - totals.calories),\n      protein_left: round(proteinTarget - totals.protein),\n      carbs_left: round(carbsTarget - totals.carbs),\n      fat_left: round(fatTarget - totals.fat),\n\n      last_date: today\n    },\n\n    meal_log: {\n      user_id: user.user_id,\n      meal_name: request.meal_name,\n      calories: toNumber(request.calories),\n      protein: toNumber(request.protein),\n      carbs: toNumber(request.carbs),\n      fat: toNumber(request.fat)\n    }\n  }\n}];"
+      },
+      "id": "9a0aba7d-c706-4e4b-acd9-9ebcd90a2bdb",
+      "name": "Calculate Totals1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        896,
+        -64
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const calc = $('Calculate Totals1').first().json;\n\nreturn [{\n  json: {\n    success: true,\n\n    user_id: calc.user_update.user_id,\n\n    meal_name: calc.meal_log.meal_name,\n    meal_calories: Number(calc.meal_log.calories),\n    meal_protein: Number(calc.meal_log.protein),\n    meal_carbs: Number(calc.meal_log.carbs),\n    meal_fat: Number(calc.meal_log.fat),\n\n    calories_today: Number(calc.user_update.calories_today),\n    calories_left: Number(calc.user_update.calories_left),\n\n    protein_left: Number(calc.user_update.protein_left),\n    carbs_left: Number(calc.user_update.carbs_left),\n    fat_left: Number(calc.user_update.fat_left)\n  }\n}];"
+      },
+      "id": "272181f6-69ad-4a03-ae39-c6311a1fb212",
+      "name": "Return to Agent1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1280,
+        -80
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "users",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 712688242,
+          "mode": "list",
+          "cachedResultName": "log meal",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "message_id",
+              "lookupValue": "={{ $('Execute Workflow Trigger').first().json.message_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -720,
+        -48
+      ],
+      "id": "a0e2c995-cab3-4e18-8f6c-4e3db1fd2f70",
+      "name": "Check Message ID",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "9524185e-cc0e-4969-a342-5feeaa3add98",
+              "leftValue": "={{ $json.message_id || '' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -512,
+        -48
+      ],
+      "id": "7556e9a0-e653-42f4-bcca-6a7534ca17fb",
+      "name": "Already Processed?"
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $('Execute Workflow Trigger').first().json;\nconst existingMeal = $input.first().json;\n\nreturn [{\n  json: {\n    success: true,\n    duplicate: true,\n    user_id: input.user_id,\n    meal_name: existingMeal.meal_name || input.meal_name || '',\n    message: '⚠️ هالوجبة مسجلة من قبل، لذلك ما سجلتها مرة ثانية.'\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        384,
+        -176
+      ],
+      "id": "9e2ff8e6-0c27-48bc-852a-87a541792ab0",
+      "name": "Return Duplicate"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "users",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 712688242,
+          "mode": "list",
+          "cachedResultName": "log meal",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "user_id",
+              "lookupValue": "={{ $('Execute Workflow Trigger').first().json.user_id }}"
+            },
+            {
+              "lookupColumn": "date",
+              "lookupValue": "={{ $now.setZone('Asia/Damascus').toFormat('yyyy-MM-dd') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        720,
+        -48
+      ],
+      "id": "c1e65ab1-a4fe-410a-a270-d17ec6c72ac8",
+      "name": "Read Today Meals"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "users",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 712688242,
+          "mode": "list",
+          "cachedResultName": "log meal",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "user_id",
+              "lookupValue": "={{ $('Execute Workflow Trigger').first().json.user_id }}"
+            },
+            {
+              "lookupColumn": "original_text",
+              "lookupValue": "={{ $('Execute Workflow Trigger').first().json.original_text }}"
+            },
+            {
+              "lookupColumn": "date",
+              "lookupValue": "={{ $now.setZone('Asia/Damascus').toFormat('yyyy-MM-dd') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -272,
+        16
+      ],
+      "id": "3994d8af-b03a-42a6-855b-c57502acdfcc",
+      "name": "Check Recent Same Meal",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const request = $('Execute Workflow Trigger').first().json;\n\nconst rows = $input.all()\n  .map(item => item.json)\n  .filter(row => row.created_at);\n\nconst now = Date.now();\nconst tenMinutes = 10 * 60 * 1000;\n\nconst recentMeal = rows.find(row => {\n  const createdAt = Date.parse(\n    String(row.created_at || '').trim()\n  );\n\n  if (!Number.isFinite(createdAt)) {\n    return false;\n  }\n\n  const difference = now - createdAt;\n\n  return difference >= 0 && difference <= tenMinutes;\n});\n\nreturn [{\n  json: {\n    duplicate: Boolean(recentMeal),\n    user_id: request.user_id,\n    meal_name: recentMeal?.meal_name || request.meal_name || '',\n    message_id: recentMeal?.message_id || '',\n    created_at: recentMeal?.created_at || ''\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -64,
+        16
+      ],
+      "id": "92ddfafb-5794-4112-80f7-c85d8d4428b0",
+      "name": "Check Duplicate Time"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "f4607bbe-e6b2-4caa-b9e6-5f8a900985b2",
+              "leftValue": "={{ $json.duplicate }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        144,
+        16
+      ],
+      "id": "e4d5fc3e-1973-416c-904a-337c733cfed4",
+      "name": "Recent Duplicate?"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Check Message ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update User Sheet": {
+      "main": [
+        [
+          {
+            "node": "Return to Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append Meal Log": {
+      "main": [
+        [
+          {
+            "node": "Read User1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read User1": {
+      "main": [
+        [
+          {
+            "node": "Read Today Meals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculate Totals1": {
+      "main": [
+        [
+          {
+            "node": "Update User Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Message ID": {
+      "main": [
+        [
+          {
+            "node": "Already Processed?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Already Processed?": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Check Recent Same Meal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Today Meals": {
+      "main": [
+        [
+          {
+            "node": "Calculate Totals1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Recent Same Meal": {
+      "main": [
+        [
+          {
+            "node": "Check Duplicate Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Duplicate Time": {
+      "main": [
+        [
+          {
+            "node": "Recent Duplicate?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recent Duplicate?": {
+      "main": [
+        [
+          {
+            "node": "Return Duplicate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Append Meal Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "tags": []
+}
