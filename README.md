@@ -124,6 +124,15 @@ flowchart TD
 - Manual day reset is a stub, because the day rolls over automatically by Damascus date.
 - Planned: weekly report, meal editing/deletion, English UI toggle.
 
+## 📸 Demo
+
+![WhatsApp demo](screenshots/whatsapp-demo-1.png)
+
+## 🔧 Workflow
+
+![n8n workflow](screenshots/workflow-overview.png)
+
+
 ---
 
 ## 👤 Author
